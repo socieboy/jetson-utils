@@ -394,7 +394,7 @@ bool gstEncoder::buildLaunchStr()
 			ss << "rtpjpegpay";
 
 		if (mOptions.codec == videoOptions::CODEC_H264 || mOptions.codec == videoOptions::CODEC_H265) {
-				ss << " config-interval=1 ! rtmpsink location=rtmp://";
+				ss << " config-interval=1 ! flvmux ! rtmpsink location=rtmp://";
 		} else {
 				ss << " ! rtmpsink location=rtmp://";
 		}
